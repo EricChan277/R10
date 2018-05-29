@@ -6,16 +6,32 @@ import {
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import { sharedNavigationOptions } from './config';
+
 import AboutContainer from '../screens/About';
 import ScheduleContainer from '../screens/Schedule';
 
-const aboutStack = createStackNavigator({
-  About: AboutContainer
-});
+const aboutStack = createStackNavigator(
+  {
+    About: AboutContainer
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 
-const scheduleStack = createStackNavigator({
-  Schedule: ScheduleContainer
-});
+const scheduleStack = createStackNavigator(
+  {
+    Schedule: ScheduleContainer
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 
 export default createBottomTabNavigator(
   {
@@ -39,7 +55,8 @@ export default createBottomTabNavigator(
       activeTintColor: 'white',
       inactiveTintColor: '#999999',
       labelStyle: {
-        fontSize: 10
+        fontSize: 10,
+        fontFamily: 'Montserrat'
       },
       style: {
         backgroundColor: 'black'

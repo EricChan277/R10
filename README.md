@@ -12,6 +12,7 @@
     </a>
 
 </p>
+
 > This Project is a mobile app for an imaginary conference called R10, created using React Native and Realm.
 
 ## Table of Contents

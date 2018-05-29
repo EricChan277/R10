@@ -4,8 +4,7 @@ import {
   View,
   Text,
   Image,
-  TouchableHighlight,
-  Button
+  TouchableHighlight
 } from 'react-native';
 import styles from './styles';
 
@@ -13,10 +12,6 @@ const About = ({ aboutData, toggleState, toggleStateFunc, navigation }) => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Button
-          title="Go to Schedule"
-          onPress={() => navigation.navigate('Schedule')}
-        />
         <View style={styles.image}>
           <Image source={require('../../assets/images/r10_logo.png')} />
         </View>
@@ -33,14 +28,14 @@ const About = ({ aboutData, toggleState, toggleStateFunc, navigation }) => {
         <Text>
           {aboutData.map((item, index) => {
             return (
-              <View>
+              <View style={styles.listView}>
                 <TouchableHighlight onPress={() => toggleStateFunc()}>
                   <Text style={styles.listTitle}>
                     {toggleState == false ? '+ ' : '- '}
                     {item.title}
                   </Text>
                 </TouchableHighlight>
-                <Text>{item.description}</Text>
+                {toggleState == false ? ' ' : <Text>{item.description}</Text>}
               </View>
             );
           })}

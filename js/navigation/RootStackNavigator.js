@@ -1,8 +1,13 @@
 import { createStackNavigator } from 'react-navigation';
-import AboutContainer from '../screens/About';
-import ScheduleContainer from '../screens/Schedule';
+import NavigationLayout from './NavigationLayout';
 
-export default createStackNavigator({
-  About: AboutContainer,
-  Schedule: ScheduleContainer
-});
+export default createStackNavigator(
+  {
+    Layout: NavigationLayout
+  },
+
+  {
+    mode: 'modal',
+    headerMode: 'none'
+  }
+);

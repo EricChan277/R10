@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50
+    backgroundColor: 'white'
   },
   image: {
     padding: 20,
@@ -30,6 +30,9 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingTop: 10,
     fontSize: 18
+  },
+  listView: {
+    flexDirection: 'column'
   }
 });
 

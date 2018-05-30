@@ -28,7 +28,7 @@ const About = ({ aboutData, toggleState, toggleStateFunc, navigation }) => {
         <Text>
           {aboutData.map((item, index) => {
             return (
-              <View style={styles.listView}>
+              <View style={styles.listView} key={index}>
                 <TouchableHighlight onPress={() => toggleStateFunc()}>
                   <Text style={styles.listTitle}>
                     {toggleState == false ? '+ ' : '- '}

@@ -16,7 +16,7 @@ const AboutData = gql`
     }
   }
 `;
-console.log(AboutData);
+// console.log(AboutData);
 
 class AboutContainer extends Component {
   constructor(props) {

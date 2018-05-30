@@ -10,10 +10,22 @@ import { sharedNavigationOptions } from './config';
 
 import AboutContainer from '../screens/About';
 import ScheduleContainer from '../screens/Schedule';
+import FavesContainer from '../screens/Faves';
 
 const aboutStack = createStackNavigator(
   {
     About: AboutContainer
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
+
+const favesStack = createStackNavigator(
+  {
+    Faves: FavesContainer
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -36,6 +48,7 @@ const scheduleStack = createStackNavigator(
 export default createBottomTabNavigator(
   {
     Schedule: scheduleStack,
+    Faves: favesStack,
     About: aboutStack
   },
   {
@@ -47,6 +60,8 @@ export default createBottomTabNavigator(
           iconName = `ios-calendar${focused ? '' : '-outline'}`;
         } else if (routeName === 'About') {
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+        } else if (routeName === 'Faves') {
+          iconName = `ios-heart${focused ? '' : '-outline'}`;
         }
         return <Ionicons name={iconName} size={25} color={tintColor} />;
       }

@@ -26,19 +26,17 @@ const About = ({ aboutData, toggleState, toggleStateFunc, navigation }) => {
         </Text>
         <Text style={styles.title}>Code of Conduct</Text>
         <Text>
-          {aboutData.map((item, index) => {
-            return (
-              <View style={styles.listView} key={index}>
-                <TouchableHighlight onPress={() => toggleStateFunc()}>
-                  <Text style={styles.listTitle}>
-                    {toggleState == false ? '+ ' : '- '}
-                    {item.title}
-                  </Text>
-                </TouchableHighlight>
-                {toggleState == false ? ' ' : <Text>{item.description}</Text>}
-              </View>
-            );
-          })}
+          {aboutData.map((item, index) => (
+            <View style={styles.listView} key={index}>
+              <TouchableHighlight onPress={() => toggleStateFunc()}>
+                <Text style={styles.listTitle}>
+                  {toggleState == false ? '+ ' : '- '}
+                  {item.title}
+                </Text>
+              </TouchableHighlight>
+              {toggleState == false ? ' ' : <Text>{item.description}</Text>}
+            </View>
+          ))}
         </Text>
       </ScrollView>
     </View>

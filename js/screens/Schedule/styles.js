@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    flexDirection: 'column',
-    fontFamily: 'Montserrat'
+    flexDirection: 'column'
+    // fontFamily: 'Montserrat'
   },
   title: {
     fontSize: 26,

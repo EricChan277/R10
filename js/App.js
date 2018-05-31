@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import client from './config/api';
+
 import { ApolloProvider } from 'react-apollo';
-// import AboutContainer from './screens/About/';
+import { Provider } from 'react-redux';
+
+import store from './redux/store';
+import client from './config/api';
 
 import RootStackNavigator from './navigation/RootStackNavigator';
 
@@ -9,7 +12,9 @@ export default class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <RootStackNavigator />
+        <Provider store={store}>
+          <RootStackNavigator />
+        </Provider>
       </ApolloProvider>
     );
   }

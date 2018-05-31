@@ -32,7 +32,10 @@ export default class ScheduleContainer extends Component {
           }
           return (
             data.allSessions.length && (
-              <Schedule sessionData={formatSessionData(data.allSessions)} />
+              <Schedule
+                sessionData={formatSessionData(data.allSessions)}
+                navigation={this.props.navigation}
+              />
             )
           );
         }}

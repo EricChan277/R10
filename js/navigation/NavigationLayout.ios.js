@@ -11,6 +11,7 @@ import { sharedNavigationOptions } from './config';
 import AboutContainer from '../screens/About';
 import ScheduleContainer from '../screens/Schedule';
 import FavesContainer from '../screens/Faves';
+import SessionContainer from '../screens/Session';
 
 const aboutStack = createStackNavigator(
   {
@@ -36,7 +37,8 @@ const favesStack = createStackNavigator(
 
 const scheduleStack = createStackNavigator(
   {
-    Schedule: ScheduleContainer
+    Schedule: ScheduleContainer,
+    Session: SessionContainer
   },
   {
     navigationOptions: ({ navigation }) => ({

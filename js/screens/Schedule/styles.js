@@ -1,12 +1,13 @@
-import { StyleSheet } from 'react-native';
-import assetColors from '../../assets/styles';
+import { StyleSheet, Platform } from 'react-native';
+import { assetColors, assetTypography } from '../../assets/styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    flexDirection: 'column'
-    // fontFamily: 'Montserrat'
+    flexDirection: 'column',
+    borderBottomColor: assetColors.lightGrey,
+    borderBottomWidth: 1
   },
   title: {
     fontSize: 26,
@@ -26,8 +27,8 @@ const styles = StyleSheet.create({
   },
   listLocation: {
     color: assetColors.mediumGrey,
-    borderBottomColor: assetColors.mediumGrey,
-    borderBottomWidth: 1,
+    // borderBottomColor: assetColors.mediumGrey,
+    // borderBottomWidth: 1,
     fontSize: 16
   },
   listView: {

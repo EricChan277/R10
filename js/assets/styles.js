@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 
-const assetColors = {
+export const assetColors = {
   mediumGrey: '#999999',
   lightGrey: '#e6e6e6',
   blue: '#8797D6',
@@ -8,4 +8,13 @@ const assetColors = {
   red: '#cf392a'
 };
 
-export default assetColors;
+export const assetTypography = {
+  ...Platform.select({
+    android: {
+      fontFamily: 'Montserrat-Regular'
+    },
+    ios: {
+      fontFamily: 'Montserrat'
+    }
+  })
+};

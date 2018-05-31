@@ -12,11 +12,11 @@ export const queryAllFaves = () => {
   return realm.objects('Faves');
 };
 
-export const addFaves = id => {
+export const addFave = id => {
   realm.write(() => {
     realm.create('Faves', {
       id: id + '',
-      faved_on: new Date();
+      faved_on: new Date()
     });
   });
 };
@@ -28,5 +28,5 @@ export const deleteFave = id => {
   });
 };
 
-const realm = Realm({ schema: [FavesSchema] });
+const realm = new Realm({ schema: [FavesSchema] });
 export default realm;

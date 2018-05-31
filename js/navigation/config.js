@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View, Text } from 'react-native';
 import { Header } from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
+
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const GradientHeader = props => (
   <View style={{ backgroundColor: 'white', overflow: 'hidden' }}>
@@ -20,5 +22,14 @@ export const sharedNavigationOptions = navigation => ({
   header: props => <GradientHeader {...props} />,
   headerStyle: {
     backgroundColor: 'transparent'
-  }
+  },
+  headerLeft: Platform.select({
+    android: (
+      <View>
+        <Text style={{ padding: 15 }} onPress={() => navigation.toggleDrawer()}>
+          <Ionicons name={'md-menu'} size={40} color={'white'} />
+        </Text>
+      </View>
+    )
+  })
 });

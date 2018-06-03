@@ -4,17 +4,15 @@ import { assetColors, assetTypography } from '../../assets/styles';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: '100%'
-  },
-  location: {
-    color: assetColors.mediumGrey,
-    padding: 10
+    height: '100%',
+    alignItems: 'center',
+    paddingTop: 20
   },
   title: {
     fontSize: 26,
     fontWeight: 'bold',
     padding: 10,
-    color: assetColors.mediumGrey
+    marginBottom: 10
   },
   time: {
     color: assetColors.red,
@@ -22,13 +20,12 @@ const styles = StyleSheet.create({
     padding: 10
   },
   text: {
-    color: assetColors.mediumGrey,
     padding: 10
   },
   image: {
-    height: 50,
-    width: 50,
-    borderRadius: 25
+    height: 100,
+    width: 100,
+    borderRadius: 50
   },
   speaker: {
     flexDirection: 'row',

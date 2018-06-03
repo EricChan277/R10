@@ -9,10 +9,9 @@ class SessionContainer extends Component {
     const title = navigation.state.params.title;
     const id = navigation.state.params.id;
     const description = navigation.state.params.description;
-    const time = navigation.state.params.startTime;
+    const time = navigation.state.params.time;
     const location = navigation.state.params.location;
     const speaker = navigation.state.params.speaker;
-    console.log(navigation.state.params);
 
     return (
       <View>
@@ -23,6 +22,7 @@ class SessionContainer extends Component {
           time={time}
           location={location}
           speaker={speaker}
+          navigation={this.props.navigation}
         />
       </View>
     );

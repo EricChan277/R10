@@ -11,10 +11,14 @@ import Schedule from './Schedule';
 const SessionData = gql`
   query {
     allSessions {
+      id
       location
       title
       speaker {
         name
+        bio
+        id
+        image
       }
       startTime
       description

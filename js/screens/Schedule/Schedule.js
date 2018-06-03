@@ -14,7 +14,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Schedule = ({ sessionData, navigation }) => {
   return (
-    <View>
+    <View style={styles.page}>
       <SectionList
         renderItem={({ item, location, startTime }, index) => (
           <TouchableOpacity
@@ -32,14 +32,11 @@ const Schedule = ({ sessionData, navigation }) => {
             <Text style={styles.listTitle}>{item.title}</Text>
             <View style={styles.listView}>
               <Text style={styles.listLocation}>{item.location}</Text>
-              {/* <TouchableHighlight onPress={() => console.log('hello')}>
-                <Ionicons name="ios-heart-outline" size={25} color="red" />
-              </TouchableHighlight> */}
             </View>
           </TouchableOpacity>
         )}
         renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.time}>{moment(title).format('h:mm:ss a')}</Text>
+          <Text style={styles.time}>{moment(title).format('h:mm a')}</Text>
         )}
         sections={sessionData}
         keyExtractor={(item, index) => index + ''}

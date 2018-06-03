@@ -2,6 +2,10 @@ import { StyleSheet, Platform } from 'react-native';
 import { assetColors, assetTypography } from '../../assets/styles';
 
 const styles = StyleSheet.create({
+  page: {
+    backgroundColor: 'white',
+    height: '100%'
+  },
   container: {
     flex: 1,
     backgroundColor: 'white',

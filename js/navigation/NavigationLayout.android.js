@@ -8,6 +8,7 @@ import AboutContainer from '../screens/About';
 import ScheduleContainer from '../screens/Schedule';
 import FavesContainer from '../screens/Faves';
 import SessionContainer from '../screens/Session';
+import SpeakerContainer from '../screens/Speaker';
 
 const aboutStack = createStackNavigator(
   {
@@ -15,7 +16,8 @@ const aboutStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: 'About'
     })
   }
 );
@@ -26,7 +28,8 @@ const favesStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: 'Faves'
     })
   }
 );
@@ -34,7 +37,11 @@ const favesStack = createStackNavigator(
 const scheduleStack = createStackNavigator(
   {
     Schedule: ScheduleContainer,
-    Session: SessionContainer
+    title: 'Schedule',
+    Session: SessionContainer,
+    title: 'Session',
+    Speaker: SpeakerContainer,
+    title: 'Speaker'
   },
   {
     navigationOptions: ({ navigation }) => ({

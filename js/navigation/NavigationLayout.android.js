@@ -38,7 +38,8 @@ export const speakerStack = createStackNavigator(
 
 const favesStack = createStackNavigator(
   {
-    Faves: FavesContainer
+    Faves: FavesContainer,
+    Session: SessionContainer
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -55,7 +56,8 @@ const scheduleStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: 'Schedule'
     })
   }
 );

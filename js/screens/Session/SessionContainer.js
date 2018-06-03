@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Session from './Session';
+import { connect } from 'react-redux';
 
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 class SessionContainer extends Component {
   render() {
@@ -23,9 +24,12 @@ class SessionContainer extends Component {
           location={location}
           speaker={speaker}
           navigation={this.props.navigation}
+          faveProps={this.props}
         />
       </View>
     );
   }
 }
-export default SessionContainer;
+export default connect(state => ({
+  faves: state.faveData.faves
+}))(SessionContainer);

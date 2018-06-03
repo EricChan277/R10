@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
@@ -26,7 +26,7 @@ const SessionData = gql`
   }
 `;
 
-export default class ScheduleContainer extends Component {
+class ScheduleContainer extends Component {
   render() {
     return (
       <Query query={SessionData}>
@@ -47,3 +47,6 @@ export default class ScheduleContainer extends Component {
     );
   }
 }
+export default connect(state => ({
+  faves: state.faveData.faves
+}))(ScheduleContainer);

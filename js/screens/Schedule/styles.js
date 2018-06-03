@@ -31,8 +31,6 @@ const styles = StyleSheet.create({
   },
   listLocation: {
     color: assetColors.mediumGrey,
-    // borderBottomColor: assetColors.mediumGrey,
-    // borderBottomWidth: 1,
     fontSize: 16
   },
   listView: {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
-import { ActivityIndicator, Text } from 'react-native';
+import { ActivityIndicator, Text, View } from 'react-native';
 
 import About from './About';
 
@@ -38,12 +38,14 @@ class AboutContainer extends Component {
           if (error) return <Text>Error!</Text>;
 
           return (
-            <About
-              aboutData={data.allConducts}
-              toggleState={this.state.toggle}
-              toggleStateFunc={this.toggleStateFunc}
-              navigation={this.props.navigation}
-            />
+            <View>
+              <About
+              // aboutData={data.allConducts}
+              // toggleState={this.state.toggle}
+              // toggleStateFunc={this.toggleStateFunc}
+              // navigation={this.props.navigation}
+              />
+            </View>
           );
         }}
       </Query>

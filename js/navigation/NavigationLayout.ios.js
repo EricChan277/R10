@@ -20,7 +20,8 @@ const aboutStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: 'About'
     })
   }
 );
@@ -41,11 +42,13 @@ export const speakerStack = createStackNavigator(
 
 const favesStack = createStackNavigator(
   {
-    Faves: FavesContainer
+    Faves: FavesContainer,
+    Session: SessionContainer
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: 'Faves'
     })
   }
 );
@@ -57,7 +60,8 @@ const scheduleStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: 'Schedule'
     })
   }
 );

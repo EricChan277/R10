@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import moment from 'moment';
+import { connect } from 'react-redux';
+import { createTheFaves, deleteTheFaves } from '../../redux/modules/faves';
 
 import styles from './styles';
 
@@ -11,8 +13,10 @@ const Session = ({
   time,
   location,
   speaker,
-  navigation
+  navigation,
+  faveProps
 }) => {
+  console.log(id);
   return (
     <View style={styles.container}>
       <Text style={styles.location}>{location}</Text>
@@ -41,13 +45,13 @@ const Session = ({
       <View style={{ alignItems: 'center', marginTop: 15 }}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => console.log('Added to faves!')}
+          onPress={() => faveProps.dispatch(createTheFaves(id))}
         >
           <Text style={{ color: 'white' }}>Add to Faves</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => console.log('Removed from Faves!')}
+          onPress={() => faveProps.dispatch(deleteTheFaves(id))}
         >
           <Text style={{ color: 'white' }}>Removed from Faves</Text>
         </TouchableOpacity>
@@ -56,4 +60,6 @@ const Session = ({
   );
 };
 
-export default Session;
+export default connect(state => ({
+  faves: state.faveData.faves
+}))(Session);

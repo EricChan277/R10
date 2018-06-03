@@ -1,14 +1,13 @@
-import { formatSessionData } from '../../lib/helper';
 import { queryAllFaves, addFave, deleteFave } from '../../config/models';
 
+/********************************ACTION CREATORS *******************************/
 const GET_FAVED_SESSION_IDS = 'GET_FAVED_SESSION_IDS';
 const CREATE_FAVE_SESSION = 'CREATE_FAVE_SESSION';
 const DELETE_FAVE_SESSION = 'DELETE_FAVE_SESSION';
 const GET_ERROR = 'GET_ERROR';
 
 export const createFaveSession = id => ({
-  type: CREATE_FAVE_SESSION,
-  payload: id
+  type: CREATE_FAVE_SESSION
 });
 
 export const getFavedSessionId = () => ({
@@ -16,8 +15,7 @@ export const getFavedSessionId = () => ({
 });
 
 export const deleteFaveSession = id => ({
-  type: DELETE_FAVE_SESSION,
-  payload: id
+  type: DELETE_FAVE_SESSION
 });
 
 export const getError = error => ({
@@ -28,7 +26,7 @@ export const getError = error => ({
 /** *********************************** Initial State *********************************/
 
 const initialState = {
-  faves: [],
+  faves: queryAllFaves(),
   error: ''
 };
 
@@ -38,14 +36,17 @@ export const createTheFaves = faveId => dispatch => {
   try {
     addFave(faveId);
     dispatch(createFaveSession());
+    dispatch(getFavedSessionId());
   } catch (error) {
     dispatch(getError(error));
   }
 };
 
 export const deleteTheFaves = faveId => dispatch => {
+  console.log(faveId);
   try {
-    removeFave(faveId);
+    deleteFave(faveId);
+    dispatch(getFavedSessionId());
     dispatch(deleteFaveSession());
   } catch (error) {
     dispatch(getError(error));
@@ -58,10 +59,8 @@ export default (state = initialState, action) => {
     case GET_FAVED_SESSION_IDS: {
       return { ...state, faves: queryAllFaves(), error: '' };
     }
-    case CREATE_FAVE_SESSION: {
-    }
-    case DELETE_FAVE_SESSION: {
-    }
+    case CREATE_FAVE_SESSION:
+    case DELETE_FAVE_SESSION:
 
     case GET_ERROR: {
       return { ...state, error: action.payload };

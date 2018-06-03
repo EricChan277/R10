@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   ScrollView,
   View,
@@ -7,6 +8,7 @@ import {
   SectionList,
   TouchableOpacity
 } from 'react-native';
+
 import styles from './styles';
 import moment from 'moment';
 import { withNavigation } from 'react-navigation';
@@ -19,7 +21,7 @@ const Schedule = ({ sessionData, navigation }) => {
         renderItem={({ item, location, startTime }, index) => (
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate('Session', {
+              navigation.push('Session', {
                 title: item.title,
                 id: item.id,
                 description: item.description,
@@ -45,4 +47,6 @@ const Schedule = ({ sessionData, navigation }) => {
   );
 };
 
-export default Schedule;
+export default connect(state => ({
+  faves: state.faveData.faves
+}))(Schedule);

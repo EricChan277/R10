@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import moment from 'moment';
 
 import styles from './styles';
@@ -25,7 +24,7 @@ const Session = ({
       <View style={styles.speaker}>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate('Speaker', {
+            navigation.push('Speaker', {
               speaker: speaker
             })
           }

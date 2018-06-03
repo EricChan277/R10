@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 import Speaker from './Speaker';
 
@@ -9,7 +9,7 @@ class SpeakerContainer extends Component {
     const speaker = navigation.getParam('speaker', 'NO-SPEAKER');
     return (
       <View>
-        <Speaker speaker={speaker} />
+        <Speaker speaker={speaker} navigation={navigation} />
       </View>
     );
   }

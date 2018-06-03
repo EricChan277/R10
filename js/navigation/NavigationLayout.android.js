@@ -22,6 +22,20 @@ const aboutStack = createStackNavigator(
   }
 );
 
+export const speakerStack = createStackNavigator(
+  {
+    Speaker: SpeakerContainer
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      headerStyle: {
+        backgroundColor: 'black',
+        borderBottomColor: 'black'
+      }
+    })
+  }
+);
+
 const favesStack = createStackNavigator(
   {
     Faves: FavesContainer
@@ -37,11 +51,7 @@ const favesStack = createStackNavigator(
 const scheduleStack = createStackNavigator(
   {
     Schedule: ScheduleContainer,
-    title: 'Schedule',
-    Session: SessionContainer,
-    title: 'Session',
-    Speaker: SpeakerContainer,
-    title: 'Speaker'
+    Session: SessionContainer
   },
   {
     navigationOptions: ({ navigation }) => ({

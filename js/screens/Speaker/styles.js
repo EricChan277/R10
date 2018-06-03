@@ -4,23 +4,29 @@ import { assetColors, assetTypography } from '../../assets/styles';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: '100%',
+    width: '90%',
+    height: '90%',
     alignItems: 'center',
-    paddingTop: 20
+    paddingTop: 20,
+    borderRadius: 10
+  },
+  innerContainer: {
+    padding: 10,
+    alignItems: 'center'
   },
   title: {
+    position: 'absolute',
+    color: 'white',
+    top: 5
+  },
+  name: {
     fontSize: 26,
     fontWeight: 'bold',
-    padding: 10,
-    marginBottom: 10
-  },
-  time: {
-    color: assetColors.red,
-    fontWeight: 'bold',
-    padding: 10
+    padding: 15
   },
   text: {
-    padding: 10
+    padding: 10,
+    lineHeight: 25
   },
   image: {
     height: 100,
@@ -41,6 +47,17 @@ const styles = StyleSheet.create({
     backgroundColor: assetColors.blue,
     padding: 10,
     borderRadius: 100
+  },
+  background: {
+    backgroundColor: 'black',
+    alignItems: 'center',
+    height: '100%',
+    paddingTop: 50
+  },
+  backBtn: {
+    position: 'absolute',
+    top: 0,
+    left: 20
   }
 });
 

@@ -1,9 +1,10 @@
 import { createStackNavigator } from 'react-navigation';
-import NavigationLayout from './NavigationLayout';
+import NavigationLayout, { speakerStack } from './NavigationLayout';
 
 export default createStackNavigator(
   {
-    Layout: NavigationLayout
+    Layout: NavigationLayout,
+    Speaker: speakerStack
   },
 
   {

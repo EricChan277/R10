@@ -12,6 +12,7 @@ import AboutContainer from '../screens/About';
 import ScheduleContainer from '../screens/Schedule';
 import FavesContainer from '../screens/Faves';
 import SessionContainer from '../screens/Session';
+import SpeakerContainer from '../screens/Speaker';
 
 const aboutStack = createStackNavigator(
   {
@@ -20,6 +21,20 @@ const aboutStack = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
+    })
+  }
+);
+
+export const speakerStack = createStackNavigator(
+  {
+    Speaker: SpeakerContainer
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      headerStyle: {
+        backgroundColor: 'black',
+        borderBottomColor: 'black'
+      }
     })
   }
 );

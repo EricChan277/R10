@@ -38,12 +38,16 @@ const Session = ({
           })
         }
       >
-        <Image
-          source={{
-            uri: speaker.image,
-          }}
-          style={styles.image}
-        />
+        {speaker.image === null ? (
+          ''
+        ) : (
+          <Image
+            source={{
+              uri: speaker.image,
+            }}
+            style={styles.image}
+          />
+        )}
       </TouchableOpacity>
       <Text style={{ padding: 10 }}>{speaker.name}</Text>
     </View>

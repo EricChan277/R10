@@ -98,7 +98,7 @@ export default createBottomTabNavigator(
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
         } else if (routeName === 'Faves') {
           iconName = `ios-heart${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Maps') {
+        } else if (routeName === 'Map') {
           iconName = `ios-map${focused ? '' : '-outline'}`;
         }
         return <Ionicons name={iconName} size={25} color={tintColor} />;

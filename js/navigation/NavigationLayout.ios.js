@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  createStackNavigator,
-  createBottomTabNavigator
-} from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -17,70 +14,70 @@ import MapContainer from '../screens/Map';
 
 const aboutStack = createStackNavigator(
   {
-    About: AboutContainer
+    About: AboutContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
       title: 'About',
-      headerTitleStyle: { color: 'white' }
-    })
-  }
+      headerTitleStyle: { color: 'white' },
+    }),
+  },
 );
 
 export const speakerStack = createStackNavigator(
   {
-    Speaker: SpeakerContainer
+    Speaker: SpeakerContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: 'black',
-        borderBottomColor: 'black'
-      }
-    })
-  }
+        borderBottomColor: 'black',
+      },
+    }),
+  },
 );
 
 const mapStack = createStackNavigator(
   {
-    Map: MapContainer
+    Map: MapContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
       title: 'Map',
-      headerTitleStyle: { color: 'white' }
-    })
-  }
+      headerTitleStyle: { color: 'white' },
+    }),
+  },
 );
 
 const favesStack = createStackNavigator(
   {
     Faves: FavesContainer,
-    Session: SessionContainer
+    Session: SessionContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
       title: 'Faves',
-      headerTitleStyle: { color: 'white' }
-    })
-  }
+      headerTitleStyle: { color: 'white' },
+    }),
+  },
 );
 
 const scheduleStack = createStackNavigator(
   {
     Schedule: ScheduleContainer,
-    Session: SessionContainer
+    Session: SessionContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
       title: 'Schedule',
-      headerTitleStyle: { color: 'white' }
-    })
-  }
+      headerTitleStyle: { color: 'white' },
+    }),
+  },
 );
 
 export default createBottomTabNavigator(
@@ -88,7 +85,7 @@ export default createBottomTabNavigator(
     Schedule: scheduleStack,
     Map: mapStack,
     Faves: favesStack,
-    About: aboutStack
+    About: aboutStack,
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -105,18 +102,18 @@ export default createBottomTabNavigator(
           iconName = `ios-map${focused ? '' : '-outline'}`;
         }
         return <Ionicons name={iconName} size={25} color={tintColor} />;
-      }
+      },
     }),
     tabBarOptions: {
       activeTintColor: 'white',
       inactiveTintColor: '#999999',
       labelStyle: {
         fontSize: 10,
-        fontFamily: 'Montserrat'
+        fontFamily: 'Montserrat',
       },
       style: {
-        backgroundColor: 'black'
-      }
-    }
-  }
+        backgroundColor: 'black',
+      },
+    },
+  },
 );

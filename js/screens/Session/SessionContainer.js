@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import Session from './Session';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
 
 import { View } from 'react-native';
 
+import Session from './Session';
+
 class SessionContainer extends Component {
   render() {
     const { navigation } = this.props;
-    const title = navigation.state.params.title;
-    const id = navigation.state.params.id;
-    const description = navigation.state.params.description;
-    const time = navigation.state.params.time;
-    const location = navigation.state.params.location;
-    const speaker = navigation.state.params.speaker;
+    const { title } = navigation.state.params;
+    const { id } = navigation.state.params;
+    const { description } = navigation.state.params;
+    const { time } = navigation.state.params;
+    const { location } = navigation.state.params;
+    const { speaker } = navigation.state.params;
 
-    const favedItems = Array.from(this.props.faves).find(
-      fave => fave.id === id
-    );
+    const favedItems = Array.from(this.props.faves).find(fave => fave.id === id);
 
     return (
       <View>
@@ -37,5 +36,5 @@ class SessionContainer extends Component {
   }
 }
 export default connect(state => ({
-  faves: state.faveData.faves
+  faves: state.faveData.faves,
 }))(withNavigation(SessionContainer));

@@ -3,7 +3,7 @@ import { assetColors, assetTypography } from '../../assets/styles';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   image: {
     padding: 20,
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
 
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
     fontSize: 26,
@@ -21,35 +21,35 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     ...Platform.select({
       android: {
-        fontFamily: assetTypography.android
+        fontFamily: assetTypography.android,
       },
       ios: {
-        fontFamily: assetTypography.ios
-      }
-    })
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   text: {
     padding: 15,
     paddingTop: 10,
     ...Platform.select({
       android: {
-        fontFamily: assetTypography.android
+        fontFamily: assetTypography.android,
       },
       ios: {
-        fontFamily: assetTypography.ios
-      }
-    })
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
 
   listView: {
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   footer: {
     paddingTop: 10,
     marginHorizontal: 15,
     borderTopColor: assetColors.lightGrey,
-    borderTopWidth: 1
-  }
+    borderTopWidth: 1,
+  },
 });
 
 export default styles;

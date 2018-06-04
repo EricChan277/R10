@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import PropTypes from 'prop-types';
 
 import { sharedNavigationOptions } from './config';
 
@@ -13,98 +14,95 @@ import MapContainer from '../screens/Map';
 
 const aboutStack = createStackNavigator(
   {
-    About: AboutContainer
+    About: AboutContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
       title: 'About',
-      headerTitleStyle: { color: 'white' }
-    })
-  }
+      headerTitleStyle: { color: 'white' },
+    }),
+  },
 );
 
 const mapStack = createStackNavigator(
   {
-    Map: MapContainer
+    Map: MapContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
       title: 'Map',
-      headerTitleStyle: { color: 'white' }
-    })
-  }
+      headerTitleStyle: { color: 'white' },
+    }),
+  },
 );
 
 export const speakerStack = createStackNavigator(
   {
-    Speaker: SpeakerContainer
+    Speaker: SpeakerContainer,
   },
   {
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: () => ({
       headerStyle: {
         backgroundColor: 'black',
-        borderBottomColor: 'black'
-      }
-    })
-  }
+        borderBottomColor: 'black',
+      },
+    }),
+  },
 );
 
 const favesStack = createStackNavigator(
   {
     Faves: FavesContainer,
-    Session: SessionContainer
+    Session: SessionContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
       title: 'Faves',
-      headerTitleStyle: { color: 'white' }
-    })
-  }
+      headerTitleStyle: { color: 'white' },
+    }),
+  },
 );
 
 const scheduleStack = createStackNavigator(
   {
     Schedule: ScheduleContainer,
-    Session: SessionContainer
+    Session: SessionContainer,
   },
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
       title: 'Schedule',
-      headerTitleStyle: { color: 'white' }
-    })
-  }
+      headerTitleStyle: { color: 'white' },
+    }),
+  },
 );
 
 aboutStack.navigationOptions = {
   drawerIcon: ({ tintColor }) => (
-    <Ionicons name={'md-information-circle'} size={25} color={tintColor} />
-  )
+    <Ionicons name="md-information-circle" size={25} color={tintColor} />
+  ),
 };
 
 favesStack.navigationOptions = {
-  drawerIcon: ({ tintColor }) => (
-    <Ionicons name={'md-heart'} size={25} color={tintColor} />
-  )
+  drawerIcon: ({ tintColor }) => <Ionicons name="md-heart" size={25} color={tintColor} />,
 };
 scheduleStack.navigationOptions = {
-  drawerIcon: ({ tintColor }) => (
-    <Ionicons name={'md-calendar'} size={25} color={tintColor} />
-  )
+  drawerIcon: ({ tintColor }) => <Ionicons name="md-calendar" size={25} color={tintColor} />,
 };
 
 mapStack.navigationOptions = {
-  drawerIcon: ({ tintColor }) => (
-    <Ionicons name={'md-map'} size={25} color={tintColor} />
-  )
+  drawerIcon: ({ tintColor }) => <Ionicons name="md-map" size={25} color={tintColor} />,
 };
 
+mapStack.navigationOptions.propTypes = {
+  tintColor: PropTypes.string.isRequired,
+};
 export default createDrawerNavigator({
   Schedule: scheduleStack,
   Map: mapStack,
   Faves: favesStack,
-  About: aboutStack
+  About: aboutStack,
 });

@@ -21,15 +21,15 @@ export const sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
   header: props => <GradientHeader {...props} />,
   headerStyle: {
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   headerLeft: Platform.select({
     android: (
       <View>
         <Text style={{ padding: 15 }} onPress={() => navigation.toggleDrawer()}>
-          <Ionicons name={'md-menu'} size={40} color={'white'} />
+          <Ionicons name="md-menu" size={40} color="white" />
         </Text>
       </View>
-    )
-  })
+    ),
+  }),
 });

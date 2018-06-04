@@ -4,16 +4,16 @@ import { assetColors, assetTypography } from '../../assets/styles';
 const styles = StyleSheet.create({
   page: {
     backgroundColor: 'white',
-    height: '100%'
+    height: '100%',
   },
   container: {
     flex: 1,
     backgroundColor: 'white',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   item: {
     borderBottomColor: assetColors.lightGrey,
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
   title: {
     fontSize: 26,
@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     ...Platform.select({
       android: {
-        fontFamily: assetTypography.android
+        fontFamily: assetTypography.android,
       },
       ios: {
-        fontFamily: assetTypography.ios
-      }
-    })
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   time: {
     backgroundColor: assetColors.lightGrey,
@@ -35,43 +35,43 @@ const styles = StyleSheet.create({
     padding: 10,
     ...Platform.select({
       android: {
-        fontFamily: assetTypography.android
+        fontFamily: assetTypography.android,
       },
       ios: {
-        fontFamily: assetTypography.ios
-      }
-    })
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   listTitle: {
     padding: 10,
     paddingBottom: 0,
     ...Platform.select({
       android: {
-        fontFamily: assetTypography.android
+        fontFamily: assetTypography.android,
       },
       ios: {
-        fontFamily: assetTypography.ios
-      }
-    })
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   listLocation: {
     color: assetColors.mediumGrey,
     ...Platform.select({
       android: {
-        fontFamily: assetTypography.android
+        fontFamily: assetTypography.android,
       },
       ios: {
-        fontFamily: assetTypography.ios
-      }
-    })
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   listView: {
     padding: 10,
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default styles;

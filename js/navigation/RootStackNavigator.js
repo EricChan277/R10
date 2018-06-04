@@ -4,11 +4,11 @@ import NavigationLayout, { speakerStack } from './NavigationLayout';
 export default createStackNavigator(
   {
     Layout: NavigationLayout,
-    Speaker: speakerStack
+    Speaker: speakerStack,
   },
 
   {
     mode: 'modal',
-    headerMode: 'none'
-  }
+    headerMode: 'none',
+  },
 );

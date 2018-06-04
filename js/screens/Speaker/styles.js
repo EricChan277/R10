@@ -8,30 +8,54 @@ const styles = StyleSheet.create({
     height: '90%',
     alignItems: 'center',
     paddingTop: 20,
-    borderRadius: 10
+    borderRadius: 10,
   },
   innerContainer: {
     padding: 10,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
     position: 'absolute',
     color: 'white',
-    top: 5
+    top: 5,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android,
+      },
+      ios: {
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   name: {
     fontSize: 26,
     fontWeight: 'bold',
-    padding: 15
+    padding: 15,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android,
+      },
+      ios: {
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   text: {
     padding: 10,
-    lineHeight: 25
+    lineHeight: 25,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android,
+      },
+      ios: {
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   image: {
     height: 100,
     width: 100,
-    borderRadius: 50
+    borderRadius: 50,
   },
   speaker: {
     flexDirection: 'row',
@@ -40,25 +64,41 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: assetColors.lightGrey,
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android,
+      },
+      ios: {
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   button: {
     alignItems: 'center',
     backgroundColor: assetColors.blue,
     padding: 10,
-    borderRadius: 100
+    borderRadius: 100,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android,
+      },
+      ios: {
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
   background: {
     backgroundColor: 'black',
     alignItems: 'center',
     height: '100%',
-    paddingTop: 50
+    paddingTop: 50,
   },
   backBtn: {
     position: 'absolute',
     top: 0,
-    left: 20
-  }
+    left: 20,
+  },
 });
 
 export default styles;

@@ -1,38 +1,38 @@
 import { queryAllFaves, addFave, deleteFave } from '../../config/models';
 
-/********************************ACTION CREATORS *******************************/
+/** ******************************ACTION CREATORS ****************************** */
 const GET_FAVED_SESSION_IDS = 'GET_FAVED_SESSION_IDS';
 const CREATE_FAVE_SESSION = 'CREATE_FAVE_SESSION';
 const DELETE_FAVE_SESSION = 'DELETE_FAVE_SESSION';
 const GET_ERROR = 'GET_ERROR';
 
-export const createFaveSession = id => ({
-  type: CREATE_FAVE_SESSION
+export const createFaveSession = () => ({
+  type: CREATE_FAVE_SESSION,
 });
 
 export const getFavedSessionId = () => ({
-  type: GET_FAVED_SESSION_IDS
+  type: GET_FAVED_SESSION_IDS,
 });
 
-export const deleteFaveSession = id => ({
-  type: DELETE_FAVE_SESSION
+export const deleteFaveSession = () => ({
+  type: DELETE_FAVE_SESSION,
 });
 
 export const getError = error => ({
   type: GET_ERROR,
-  payload: error
+  payload: error,
 });
 
-/** *********************************** Initial State *********************************/
+/** *********************************** Initial State ******************************** */
 
 const initialState = {
   faves: queryAllFaves(),
-  error: ''
+  error: '',
 };
 
-/** *********************************** THUNK *********************************/
+/** *********************************** THUNK ******************************** */
 
-export const createTheFaves = faveId => dispatch => {
+export const createTheFaves = faveId => (dispatch) => {
   try {
     addFave(faveId);
     dispatch(createFaveSession());
@@ -42,8 +42,7 @@ export const createTheFaves = faveId => dispatch => {
   }
 };
 
-export const deleteTheFaves = faveId => dispatch => {
-  console.log(faveId);
+export const deleteTheFaves = faveId => (dispatch) => {
   try {
     deleteFave(faveId);
     dispatch(getFavedSessionId());
@@ -53,7 +52,7 @@ export const deleteTheFaves = faveId => dispatch => {
   }
 };
 
-/************************************* REDUCERS ******************************** */
+/** *********************************** REDUCERS ******************************** */
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_FAVED_SESSION_IDS: {
@@ -67,7 +66,7 @@ export default (state = initialState, action) => {
     }
     default: {
       return {
-        ...state
+        ...state,
       };
     }
   }

@@ -22,19 +22,19 @@ class AboutConductContainer extends Component {
 
     this.state = {
       toggle: false,
-      animation: new Animated.Value(0)
+      animation: new Animated.Value(0),
     };
   }
 
   toggle() {
-    let heightVal = this.state.toggle === true ? 0 : '100%';
+    const heightVal = this.state.toggle === true ? 0 : '100%';
     this.setState({
-      toggle: !this.state.toggle
+      toggle: !this.state.toggle,
     });
 
     Animated.spring(this.state.animation, {
       toValue: heightVal,
-      duration: 1000
+      duration: 1000,
     }).start();
   }
 

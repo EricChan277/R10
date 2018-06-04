@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Text } from 'react-native';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import PropTypes from 'prop-types';
 
 import Loader from '../../components/Loader';
 
@@ -28,13 +30,12 @@ const SessionData = gql`
 
 class ScheduleContainer extends Component {
   filterSessions = (faved, sessions) => {
-    const favedSessions = sessions.filter(session =>
-      faved.find(fave => fave.id === session.id)
-    );
+    const favedSessions = sessions.filter(session => faved.find(fave => fave.id === session.id));
     return favedSessions;
   };
   render() {
     const favedItems = Array.from(this.props.faves);
+    console.log(this.props.faves);
 
     return (
       <Query query={SessionData}>
@@ -42,8 +43,11 @@ class ScheduleContainer extends Component {
           if (loading || !data) {
             return <Loader />;
           }
+          if (error) {
+            return <Text>Error: {error}</Text>;
+          }
           const faved = this.filterSessions(favedItems, data.allSessions);
-          console.log(faved);
+
           return (
             data.allSessions.length && (
               <Schedule
@@ -58,6 +62,12 @@ class ScheduleContainer extends Component {
     );
   }
 }
+
+ScheduleContainer.propTypes = {
+  faves: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
+};
+
 export default connect(state => ({
-  faves: state.faveData.faves
+  faves: state.faveData.faves,
 }))(ScheduleContainer);

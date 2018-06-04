@@ -1,60 +1,56 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  ScrollView,
-  View,
-  Text,
-  SectionList,
-  TouchableOpacity
-} from 'react-native';
+import { View, Text, SectionList, TouchableOpacity } from 'react-native';
 
-import styles from './styles';
+import PropTypes from 'prop-types';
+
 import moment from 'moment';
-import { withNavigation } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Schedule = ({ sessionData, navigation, faved }) => {
-  console.log(faved);
-  return (
-    <View style={styles.page}>
-      <SectionList
-        renderItem={({ item, location, startTime }, index) => (
-          <TouchableOpacity
-            style={styles.item}
-            onPress={() =>
-              navigation.push('Session', {
-                title: item.title,
-                id: item.id,
-                description: item.description,
-                time: item.startTime,
-                location: item.location,
-                speaker: item.speaker
-              })
-            }
-          >
-            <Text style={styles.listTitle}>{item.title}</Text>
-            <View style={styles.listView}>
-              <Text style={styles.listLocation}>{item.location}</Text>
-              {!faved.find(fave => fave.id === item.id) && (
-                <View style={styles.listView}>
-                  <Text style={styles.listLocation}>{item.location}</Text>
-                  <Ionicons name={'md-heart'} size={25} color={'red'} />
-                </View>
-              )}
-              <Ionicons name={'md-heart'} size={25} color={'red'} />
-            </View>
-          </TouchableOpacity>
-        )}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.time}>{moment(title).format('h:mm a')}</Text>
-        )}
-        sections={sessionData}
-        keyExtractor={(item, index) => index + ''}
-      />
-    </View>
-  );
+import styles from './styles';
+
+const Schedule = ({ sessionData, navigation, faved }) => (
+  <View style={styles.page}>
+    <SectionList
+      renderItem={({ item }, index) => (
+        <TouchableOpacity
+          key={index}
+          style={styles.item}
+          onPress={() =>
+            navigation.push('Session', {
+              title: item.title,
+              id: item.id,
+              description: item.description,
+              time: item.startTime,
+              location: item.location,
+              speaker: item.speaker,
+            })
+          }
+        >
+          <Text style={styles.listTitle}>{item.title}</Text>
+          <View style={styles.listView}>
+            <Text style={styles.listLocation}>{item.location}</Text>
+            {faved.find(fave => fave.id === item.id) && (
+              <Ionicons name="md-heart" size={25} color="red" />
+            )}
+          </View>
+        </TouchableOpacity>
+      )}
+      renderSectionHeader={({ section: { title } }) => (
+        <Text style={styles.time}>{moment(title).format('h:mm a')}</Text>
+      )}
+      sections={sessionData}
+      keyExtractor={(item, index) => `${index}`}
+    />
+  </View>
+);
+
+Schedule.propTypes = {
+  sessionData: PropTypes.object.isRequired,
+  faved: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 export default connect(state => ({
-  faves: state.faveData.faves
+  faves: state.faveData.faves,
 }))(Schedule);

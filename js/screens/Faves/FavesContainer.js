@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import PropTypes from 'prop-types';
 
 import Loader from '../../components/Loader';
 import { formatSessionData } from '../../lib/helper';
@@ -30,9 +30,7 @@ const SessionData = gql`
 
 class FavesContainer extends Component {
   filterSessions = (faved, sessions) => {
-    const favedSessions = sessions.filter(session =>
-      faved.find(fave => fave.id === session.id)
-    );
+    const favedSessions = sessions.filter(session => faved.find(fave => fave.id === session.id));
     return favedSessions;
   };
 
@@ -45,14 +43,14 @@ class FavesContainer extends Component {
           if (loading || !data) {
             return <Loader />;
           }
+          if (error) {
+            console.log('Error: ', error);
+          }
           const faved = this.filterSessions(favedItems, data.allSessions);
 
           return (
             data.allSessions.length && (
-              <Faves
-                sessionData={formatSessionData(faved)}
-                navigation={this.props.navigation}
-              />
+              <Faves sessionData={formatSessionData(faved)} navigation={this.props.navigation} />
             )
           );
         }}
@@ -60,6 +58,11 @@ class FavesContainer extends Component {
     );
   }
 }
+
+FavesContainer.propTypes = {
+  faves: PropTypes.array.isRequired,
+  navigation: PropTypes.object.isRequired,
+};
 export default connect(state => ({
-  faves: state.faveData.faves
+  faves: state.faveData.faves,
 }))(withNavigation(FavesContainer));

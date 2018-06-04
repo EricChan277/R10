@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: 'white'
   },
   image: {
@@ -22,8 +21,7 @@ const styles = StyleSheet.create({
   },
   text: {
     padding: 15,
-    paddingTop: 10,
-    fontSize: 18
+    paddingTop: 10
   },
   listTitle: {
     color: '#9963ea',

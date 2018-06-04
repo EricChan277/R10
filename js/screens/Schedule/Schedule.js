@@ -4,7 +4,6 @@ import {
   ScrollView,
   View,
   Text,
-  TouchableHighlight,
   SectionList,
   TouchableOpacity
 } from 'react-native';
@@ -14,7 +13,11 @@ import moment from 'moment';
 import { withNavigation } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Schedule = ({ sessionData, navigation }) => {
+const Schedule = ({ sessionData, navigation, faved }) => {
+  const favedSessions = sessionData.filter(session =>
+    faved.find(fave => fave.id === session.id)
+  );
+  console.log(favedSessions);
   return (
     <View style={styles.page}>
       <SectionList

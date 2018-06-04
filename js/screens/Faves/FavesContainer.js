@@ -6,6 +6,7 @@ import { withNavigation } from 'react-navigation';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
+import Loader from '../../components/Loader';
 import { formatSessionData } from '../../lib/helper';
 import Faves from './Faves';
 
@@ -42,10 +43,10 @@ class FavesContainer extends Component {
       <Query query={SessionData}>
         {({ loading, error, data }) => {
           if (loading || !data) {
-            return <ActivityIndicator />;
+            return <Loader />;
           }
           const faved = this.filterSessions(favedItems, data.allSessions);
-          console.log(faved);
+
           return (
             data.allSessions.length && (
               <Faves

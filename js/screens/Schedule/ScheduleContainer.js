@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
-import { ActivityIndicator } from 'react-native';
+import Loader from '../../components/Loader';
 
 import { formatSessionData } from '../../lib/helper';
 import Schedule from './Schedule';
@@ -27,18 +27,29 @@ const SessionData = gql`
 `;
 
 class ScheduleContainer extends Component {
+  filterSessions = (faved, sessions) => {
+    const favedSessions = sessions.filter(session =>
+      faved.find(fave => fave.id === session.id)
+    );
+    return favedSessions;
+  };
   render() {
+    const favedItems = Array.from(this.props.faves);
+
     return (
       <Query query={SessionData}>
         {({ loading, error, data }) => {
           if (loading || !data) {
-            return <ActivityIndicator />;
+            return <Loader />;
           }
+          const faved = this.filterSessions(favedItems, data.allSessions);
+
           return (
             data.allSessions.length && (
               <Schedule
                 sessionData={formatSessionData(data.allSessions)}
                 navigation={this.props.navigation}
+                faved={faved}
               />
             )
           );

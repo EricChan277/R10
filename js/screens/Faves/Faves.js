@@ -36,6 +36,7 @@ const Faves = ({ sessionData, navigation }) => {
             <Text style={styles.listTitle}>{item.title}</Text>
             <View style={styles.listView}>
               <Text style={styles.listLocation}>{item.location}</Text>
+              <Ionicons name={'md-heart'} size={25} color={'red'} />
             </View>
           </TouchableOpacity>
         )}

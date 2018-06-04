@@ -96,14 +96,6 @@ const styles = StyleSheet.create({
     backgroundColor: assetColors.blue,
     padding: 10,
     borderRadius: 100,
-    ...Platform.select({
-      android: {
-        fontFamily: assetTypography.android,
-      },
-      ios: {
-        fontFamily: assetTypography.ios,
-      },
-    }),
   },
 });
 

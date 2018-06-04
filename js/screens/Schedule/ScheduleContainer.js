@@ -21,6 +21,7 @@ const SessionData = gql`
         bio
         id
         image
+        url
       }
       startTime
       description

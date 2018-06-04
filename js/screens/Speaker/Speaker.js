@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, Image, TouchableOpacity, ScrollView, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import styles from './styles';
 
 const Speaker = ({ speaker, navigation }) => (
   <View style={styles.background}>
+    {console.log(speaker)}
     <Icon
       name="md-close"
       size={30}
@@ -24,7 +25,7 @@ const Speaker = ({ speaker, navigation }) => (
         />
         <Text style={styles.name}>{speaker.name}</Text>
         <Text style={styles.text}>{speaker.bio}</Text>
-        <TouchableOpacity style={styles.button} onPress={() => console.log('Open wiki page!')}>
+        <TouchableOpacity style={styles.button} onPress={() => Linking.openURL(speaker.url)}>
           <Text style={{ color: 'white' }}>Read More on Wikipedia</Text>
         </TouchableOpacity>
       </ScrollView>

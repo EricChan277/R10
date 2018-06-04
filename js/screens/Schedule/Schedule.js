@@ -46,8 +46,8 @@ const Schedule = ({ sessionData, navigation, faved }) => (
 );
 
 Schedule.propTypes = {
-  sessionData: PropTypes.object.isRequired,
-  faved: PropTypes.object.isRequired,
+  sessionData: PropTypes.array.isRequired,
+  faved: PropTypes.array.isRequired,
   navigation: PropTypes.object.isRequired,
 };
 

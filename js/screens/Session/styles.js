@@ -10,14 +10,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
     justifyContent: 'space-between',
-    ...Platform.select({
-      android: {
-        fontFamily: assetTypography.android,
-      },
-      ios: {
-        fontFamily: assetTypography.ios,
-      },
-    }),
   },
   locationText: {
     color: assetColors.mediumGrey,
@@ -82,14 +74,6 @@ const styles = StyleSheet.create({
     borderBottomColor: assetColors.lightGrey,
     marginLeft: 20,
     marginRight: 20,
-    ...Platform.select({
-      android: {
-        fontFamily: assetTypography.android,
-      },
-      ios: {
-        fontFamily: assetTypography.ios,
-      },
-    }),
   },
   button: {
     alignItems: 'center',

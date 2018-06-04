@@ -75,7 +75,6 @@ Session.propTypes = {
   time: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   speaker: PropTypes.object.isRequired,
-  favedItems: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
   thisProps: PropTypes.object.isRequired,
 };

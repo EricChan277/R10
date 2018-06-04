@@ -42,10 +42,10 @@ const Faves = ({ sessionData, navigation }) => (
   </View>
 );
 
-Faves.propTypes = {
-  sessionData: PropTypes.array.isRequired,
-  navigation: PropTypes.object.isRequired,
-};
+// Faves.propTypes = {
+//   sessionData: PropTypes.array.isRequired,
+//   navigation: PropTypes.object.isRequired,
+// };
 
 export default connect(state => ({
   faves: state.faveData.faves,

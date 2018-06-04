@@ -59,10 +59,10 @@ class FavesContainer extends Component {
   }
 }
 
-FavesContainer.propTypes = {
-  faves: PropTypes.object.isRequired,
-  navigation: PropTypes.object.isRequired,
-};
+// FavesContainer.propTypes = {
+//   faves: PropTypes.object.isRequired,
+//   navigation: PropTypes.object.isRequired,
+// };
 export default connect(state => ({
   faves: state.faveData.faves,
 }))(withNavigation(FavesContainer));

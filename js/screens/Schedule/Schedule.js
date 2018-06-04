@@ -45,11 +45,11 @@ const Schedule = ({ sessionData, navigation, faved }) => (
   </View>
 );
 
-Schedule.propTypes = {
-  sessionData: PropTypes.array.isRequired,
-  faved: PropTypes.array.isRequired,
-  navigation: PropTypes.object.isRequired,
-};
+// Schedule.propTypes = {
+//   sessionData: PropTypes.array.isRequired,
+//   faved: PropTypes.array.isRequired,
+//   navigation: PropTypes.object.isRequired,
+// };
 
 export default connect(state => ({
   faves: state.faveData.faves,

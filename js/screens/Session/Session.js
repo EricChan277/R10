@@ -68,16 +68,16 @@ const Session = ({
   </View>
 );
 
-Session.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  speaker: PropTypes.object.isRequired,
-  navigation: PropTypes.object.isRequired,
-  thisProps: PropTypes.object.isRequired,
-};
+// Session,PropTypes = {
+//   title: PropTypes.string.isRequired,
+//   description: PropTypes.string.isRequired,
+//   id: PropTypes.string.isRequired,
+//   time: PropTypes.string.isRequired,
+//   location: PropTypes.string.isRequired,
+//   speaker: PropTypes.object.isRequired,
+//   navigation: PropTypes.object.isRequired,
+//   thisProps: PropTypes.object.isRequired,
+// };
 
 export default connect(state => ({
   faves: state.faveData.faves,

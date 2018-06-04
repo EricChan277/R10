@@ -97,9 +97,9 @@ mapStack.navigationOptions = {
   drawerIcon: ({ tintColor }) => <Ionicons name="md-map" size={25} color={tintColor} />,
 };
 
-mapStack.navigationOptions.propTypes = {
-  tintColor: PropTypes.string.isRequired,
-};
+// mapStack.navigationOptions = {
+//   tintColor: PropTypes.string.isRequired,
+// };
 export default createDrawerNavigator({
   Schedule: scheduleStack,
   Map: mapStack,

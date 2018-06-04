@@ -64,10 +64,10 @@ class ScheduleContainer extends Component {
   }
 }
 
-ScheduleContainer.propTypes = {
-  faves: PropTypes.object.isRequired,
-  navigation: PropTypes.object.isRequired,
-};
+// ScheduleContainer.PropTypes = {
+//   faves: PropTypes.object.isRequired,
+//   navigation: PropTypes.object.isRequired,
+// };
 
 export default connect(state => ({
   faves: state.faveData.faves,

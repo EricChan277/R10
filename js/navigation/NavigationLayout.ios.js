@@ -13,6 +13,7 @@ import ScheduleContainer from '../screens/Schedule';
 import FavesContainer from '../screens/Faves';
 import SessionContainer from '../screens/Session';
 import SpeakerContainer from '../screens/Speaker';
+import MapContainer from '../screens/Map';
 
 const aboutStack = createStackNavigator(
   {
@@ -21,7 +22,8 @@ const aboutStack = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
-      title: 'About'
+      title: 'About',
+      headerTitleStyle: { color: 'white' }
     })
   }
 );
@@ -40,6 +42,19 @@ export const speakerStack = createStackNavigator(
   }
 );
 
+const mapStack = createStackNavigator(
+  {
+    Map: MapContainer
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation),
+      title: 'Map',
+      headerTitleStyle: { color: 'white' }
+    })
+  }
+);
+
 const favesStack = createStackNavigator(
   {
     Faves: FavesContainer,
@@ -48,7 +63,8 @@ const favesStack = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
-      title: 'Faves'
+      title: 'Faves',
+      headerTitleStyle: { color: 'white' }
     })
   }
 );
@@ -61,7 +77,8 @@ const scheduleStack = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
-      title: 'Schedule'
+      title: 'Schedule',
+      headerTitleStyle: { color: 'white' }
     })
   }
 );
@@ -69,6 +86,7 @@ const scheduleStack = createStackNavigator(
 export default createBottomTabNavigator(
   {
     Schedule: scheduleStack,
+    Map: mapStack,
     Faves: favesStack,
     About: aboutStack
   },
@@ -83,6 +101,8 @@ export default createBottomTabNavigator(
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
         } else if (routeName === 'Faves') {
           iconName = `ios-heart${focused ? '' : '-outline'}`;
+        } else if (routeName === 'Maps') {
+          iconName = `ios-map${focused ? '' : '-outline'}`;
         }
         return <Ionicons name={iconName} size={25} color={tintColor} />;
       }

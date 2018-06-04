@@ -1,19 +1,6 @@
 import { StyleSheet, Platform } from 'react-native';
-import { assetColors, assetTypography } from '../../assets/styles';
-
+import { assetTypography } from '../../assets/styles';
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white'
-  },
-  image: {
-    padding: 20,
-    margin: 30,
-    borderBottomColor: assetColors.lightGrey,
-    borderBottomWidth: 2,
-
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   title: {
     fontSize: 26,
     fontWeight: 'bold',
@@ -40,15 +27,22 @@ const styles = StyleSheet.create({
       }
     })
   },
-
+  listTitle: {
+    color: '#9963ea',
+    padding: 15,
+    paddingTop: 10,
+    fontSize: 18,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android
+      },
+      ios: {
+        fontFamily: assetTypography.ios
+      }
+    })
+  },
   listView: {
     flexDirection: 'column'
-  },
-  footer: {
-    paddingTop: 10,
-    marginHorizontal: 15,
-    borderTopColor: assetColors.lightGrey,
-    borderTopWidth: 1
   }
 });
 

@@ -9,12 +9,6 @@ export const assetColors = {
 };
 
 export const assetTypography = {
-  ...Platform.select({
-    android: {
-      fontFamily: 'Montserrat-Regular'
-    },
-    ios: {
-      fontFamily: 'Montserrat'
-    }
-  })
+  android: 'Montserrat-Regular',
+  ios: 'Montserrat'
 };

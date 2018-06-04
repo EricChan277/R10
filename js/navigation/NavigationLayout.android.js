@@ -9,6 +9,7 @@ import ScheduleContainer from '../screens/Schedule';
 import FavesContainer from '../screens/Faves';
 import SessionContainer from '../screens/Session';
 import SpeakerContainer from '../screens/Speaker';
+import MapContainer from '../screens/Map';
 
 const aboutStack = createStackNavigator(
   {
@@ -17,7 +18,21 @@ const aboutStack = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
-      title: 'About'
+      title: 'About',
+      headerTitleStyle: { color: 'white' }
+    })
+  }
+);
+
+const mapStack = createStackNavigator(
+  {
+    Map: MapContainer
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation),
+      title: 'Map',
+      headerTitleStyle: { color: 'white' }
     })
   }
 );
@@ -44,7 +59,8 @@ const favesStack = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
-      title: 'Faves'
+      title: 'Faves',
+      headerTitleStyle: { color: 'white' }
     })
   }
 );
@@ -57,7 +73,8 @@ const scheduleStack = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
-      title: 'Schedule'
+      title: 'Schedule',
+      headerTitleStyle: { color: 'white' }
     })
   }
 );
@@ -79,37 +96,15 @@ scheduleStack.navigationOptions = {
   )
 };
 
-export default createDrawerNavigator(
-  {
-    Schedule: scheduleStack,
-    Faves: favesStack,
-    About: aboutStack
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-      drawerIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Schedule') {
-          iconName = `ios-calendar${focused ? '' : '-outline'}`;
-        } else if (routeName === 'About') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Faves') {
-          iconName = `ios-heart${focused ? '' : '-outline'}`;
-        }
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
-      }
-    }),
-    tabBarOptions: {
-      activeTintColor: 'white',
-      inactiveTintColor: '#999999',
-      labelStyle: {
-        fontSize: 10,
-        fontFamily: 'Montserrat'
-      },
-      style: {
-        backgroundColor: 'black'
-      }
-    }
-  }
-);
+mapStack.navigationOptions = {
+  drawerIcon: ({ tintColor }) => (
+    <Ionicons name={'md-map'} size={25} color={tintColor} />
+  )
+};
+
+export default createDrawerNavigator({
+  Schedule: scheduleStack,
+  Map: mapStack,
+  Faves: favesStack,
+  About: aboutStack
+});

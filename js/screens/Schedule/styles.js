@@ -9,9 +9,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    flexDirection: 'column',
-    borderBottomColor: assetColors.lightGrey,
-    borderBottomWidth: 1
+    flexDirection: 'column'
   },
   item: {
     borderBottomColor: assetColors.lightGrey,
@@ -21,29 +19,60 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     padding: 15,
-    paddingTop: 10
+    paddingTop: 10,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android
+      },
+      ios: {
+        fontFamily: assetTypography.ios
+      }
+    })
   },
   time: {
     backgroundColor: assetColors.lightGrey,
     fontWeight: 'bold',
-    padding: 10
+    padding: 10,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android
+      },
+      ios: {
+        fontFamily: assetTypography.ios
+      }
+    })
   },
   listTitle: {
     fontSize: 20,
     padding: 10,
-    paddingBottom: 0
+    paddingBottom: 0,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android
+      },
+      ios: {
+        fontFamily: assetTypography.ios
+      }
+    })
   },
   listLocation: {
     color: assetColors.mediumGrey,
-    fontSize: 16
+    fontSize: 16,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android
+      },
+      ios: {
+        fontFamily: assetTypography.ios
+      }
+    })
   },
   listView: {
     padding: 10,
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 14
+    alignItems: 'center'
   }
 });
 

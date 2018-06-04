@@ -1,8 +1,9 @@
 import React from 'react';
 import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
+import AboutConduct from '../../components/AboutConduct';
 
-const About = ({ aboutData, toggleState, toggleStateFunc, navigation }) => {
+const About = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.image}>
@@ -19,17 +20,9 @@ const About = ({ aboutData, toggleState, toggleStateFunc, navigation }) => {
       <Text style={styles.title}>Code of Conduct</Text>
 
       <View style={styles.listView}>
-        {aboutData.map((item, index) => (
-          <View key={index}>
-            <TouchableOpacity
-              onPress={() => console.log('pressed on', item.title)}
-            >
-              <Text style={styles.listTitle}> {item.title}</Text>
-            </TouchableOpacity>
-            <Text>{item.description}</Text>
-          </View>
-        ))}
+        <AboutConduct />
       </View>
+      <Text style={styles.footer}>© Eric Chan 2018</Text>
     </ScrollView>
   );
 };

@@ -7,8 +7,10 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   location: {
+    flexDirection: 'row',
     color: assetColors.mediumGrey,
-    padding: 10
+    padding: 10,
+    justifyContent: 'space-between'
   },
   title: {
     fontSize: 26,

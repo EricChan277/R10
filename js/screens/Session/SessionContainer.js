@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Session from './Session';
 import { connect } from 'react-redux';
+import { withNavigation } from 'react-navigation';
 
 import { View } from 'react-native';
 
@@ -14,6 +15,12 @@ class SessionContainer extends Component {
     const location = navigation.state.params.location;
     const speaker = navigation.state.params.speaker;
 
+    const favedItems = Array.from(this.props.faves).find(
+      fave => fave.id === id
+    );
+
+    console.log(favedItems);
+
     return (
       <View>
         <Session
@@ -24,7 +31,8 @@ class SessionContainer extends Component {
           location={location}
           speaker={speaker}
           navigation={this.props.navigation}
-          faveProps={this.props}
+          thisProps={this.props}
+          favedItems={favedItems}
         />
       </View>
     );
@@ -32,4 +40,4 @@ class SessionContainer extends Component {
 }
 export default connect(state => ({
   faves: state.faveData.faves
-}))(SessionContainer);
+}))(withNavigation(SessionContainer));

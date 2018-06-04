@@ -13,6 +13,10 @@ const styles = StyleSheet.create({
     borderBottomColor: assetColors.lightGrey,
     borderBottomWidth: 1
   },
+  item: {
+    borderBottomColor: assetColors.lightGrey,
+    borderBottomWidth: 1
+  },
   title: {
     fontSize: 26,
     fontWeight: 'bold',

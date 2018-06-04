@@ -15,11 +15,13 @@ import { withNavigation } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Faves = ({ sessionData, navigation }) => {
+  console.log(this.props);
   return (
     <View style={styles.page}>
       <SectionList
         renderItem={({ item, location, startTime }, index) => (
           <TouchableOpacity
+            style={styles.item}
             onPress={() =>
               navigation.navigate('Session', {
                 title: item.title,

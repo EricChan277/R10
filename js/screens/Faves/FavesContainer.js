@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+
 import { formatSessionData } from '../../lib/helper';
 import Faves from './Faves';
 
@@ -26,17 +28,28 @@ const SessionData = gql`
 `;
 
 class FavesContainer extends Component {
+  filterSessions = (faved, sessions) => {
+    const favedSessions = sessions.filter(session =>
+      faved.find(fave => fave.id === session.id)
+    );
+    return favedSessions;
+  };
+
   render() {
+    const favedItems = Array.from(this.props.faves);
+
     return (
       <Query query={SessionData}>
         {({ loading, error, data }) => {
           if (loading || !data) {
             return <ActivityIndicator />;
           }
+          const faved = this.filterSessions(favedItems, data.allSessions);
+          console.log(faved);
           return (
             data.allSessions.length && (
               <Faves
-                sessionData={formatSessionData(data.allSessions)}
+                sessionData={formatSessionData(faved)}
                 navigation={this.props.navigation}
               />
             )
@@ -48,4 +61,4 @@ class FavesContainer extends Component {
 }
 export default connect(state => ({
   faves: state.faveData.faves
-}))(FavesContainer);
+}))(withNavigation(FavesContainer));

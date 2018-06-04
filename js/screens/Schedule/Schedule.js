@@ -20,6 +20,7 @@ const Schedule = ({ sessionData, navigation }) => {
       <SectionList
         renderItem={({ item, location, startTime }, index) => (
           <TouchableOpacity
+            style={styles.item}
             onPress={() =>
               navigation.push('Session', {
                 title: item.title,

@@ -22,7 +22,7 @@ const Session = ({
   return (
     <View style={styles.container}>
       <View style={styles.location}>
-        <Text>{location}</Text>
+        <Text style={styles.locationText}>{location}</Text>
         {favedItems ? (
           <Ionicons name={'md-heart'} size={25} color={'red'} />
         ) : (

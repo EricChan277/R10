@@ -19,8 +19,6 @@ class SessionContainer extends Component {
       fave => fave.id === id
     );
 
-    console.log(favedItems);
-
     return (
       <View>
         <Session

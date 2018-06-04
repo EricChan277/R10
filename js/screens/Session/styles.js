@@ -8,9 +8,11 @@ const styles = StyleSheet.create({
   },
   location: {
     flexDirection: 'row',
-    color: assetColors.mediumGrey,
     padding: 10,
     justifyContent: 'space-between'
+  },
+  locationText: {
+    color: assetColors.mediumGrey
   },
   title: {
     fontSize: 26,

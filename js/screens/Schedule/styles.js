@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
     })
   },
   listTitle: {
-    fontSize: 20,
     padding: 10,
     paddingBottom: 0,
     ...Platform.select({
@@ -57,7 +56,6 @@ const styles = StyleSheet.create({
   },
   listLocation: {
     color: assetColors.mediumGrey,
-    fontSize: 16,
     ...Platform.select({
       android: {
         fontFamily: assetTypography.android

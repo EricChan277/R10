@@ -43,7 +43,7 @@ class ScheduleContainer extends Component {
             return <Loader />;
           }
           const faved = this.filterSessions(favedItems, data.allSessions);
-
+          console.log(faved);
           return (
             data.allSessions.length && (
               <Schedule

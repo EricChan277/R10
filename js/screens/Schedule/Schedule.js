@@ -14,10 +14,7 @@ import { withNavigation } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Schedule = ({ sessionData, navigation, faved }) => {
-  const favedSessions = sessionData.filter(session =>
-    faved.find(fave => fave.id === session.id)
-  );
-  console.log(favedSessions);
+  console.log(faved);
   return (
     <View style={styles.page}>
       <SectionList
@@ -38,6 +35,13 @@ const Schedule = ({ sessionData, navigation, faved }) => {
             <Text style={styles.listTitle}>{item.title}</Text>
             <View style={styles.listView}>
               <Text style={styles.listLocation}>{item.location}</Text>
+              {!faved.find(fave => fave.id === item.id) && (
+                <View style={styles.listView}>
+                  <Text style={styles.listLocation}>{item.location}</Text>
+                  <Ionicons name={'md-heart'} size={25} color={'red'} />
+                </View>
+              )}
+              <Ionicons name={'md-heart'} size={25} color={'red'} />
             </View>
           </TouchableOpacity>
         )}

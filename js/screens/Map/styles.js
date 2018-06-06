@@ -1,10 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
+  mapContainer: {
+    flex: 1,
+  },
   map: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%',
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
   },
 });
 

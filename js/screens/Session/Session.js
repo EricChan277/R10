@@ -28,28 +28,31 @@ const Session = ({
     <Text style={styles.title}>{title}</Text>
     <Text style={styles.time}>{moment(time).format('h:mm a')}</Text>
     <Text style={styles.text}>{description}</Text>
-    <Text style={styles.text}>Presented by: </Text>
 
-    <TouchableOpacity
-      style={styles.speaker}
-      onPress={() =>
-        navigation.push('Speaker', {
-          speaker,
-        })
-      }
-    >
-      {speaker.image === null ? (
-        ''
-      ) : (
-        <Image
-          source={{
-            uri: speaker.image,
-          }}
-          style={styles.image}
-        />
-      )}
-      <Text style={styles.name}>{speaker.name}</Text>
-    </TouchableOpacity>
+    {speaker === '' ? (
+      ''
+    ) : (
+      <View>
+        <Text style={styles.text}>Presented by: </Text>
+        <TouchableOpacity
+          style={styles.speaker}
+          onPress={() =>
+            navigation.push('Speaker', {
+              speaker,
+            })
+          }
+        >
+          <Image
+            source={{
+              uri: speaker.image,
+            }}
+            style={styles.image}
+          />
+
+          <Text style={styles.name}>{speaker.name}</Text>
+        </TouchableOpacity>
+      </View>
+    )}
 
     <View style={styles.buttonContainer}>
       {!favedItems ? (

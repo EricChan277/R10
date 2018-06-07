@@ -26,7 +26,7 @@ class SessionContainer extends Component {
           description={description}
           time={time}
           location={location}
-          speaker={speaker}
+          speaker={speaker === null ? '' : speaker}
           navigation={this.props.navigation}
           thisProps={this.props}
           favedItems={favedItems}

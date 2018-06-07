@@ -6,9 +6,12 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 
+import { View, Text } from 'react-native';
+
 import Loader from '../../components/Loader';
 import { formatSessionData } from '../../lib/helper';
 import Faves from './Faves';
+import styles from './styles';
 
 const SessionData = gql`
   query {
@@ -48,10 +51,12 @@ class FavesContainer extends Component {
           }
           const faved = this.filterSessions(favedItems, data.allSessions);
 
-          return (
-            data.allSessions.length && (
-              <Faves sessionData={formatSessionData(faved)} navigation={this.props.navigation} />
-            )
+          return faved.length === 0 ? (
+            <View style={styles.none}>
+              <Text>Your favourited sessions will show up here!</Text>
+            </View>
+          ) : (
+            <Faves sessionData={formatSessionData(faved)} navigation={this.props.navigation} />
           );
         }}
       </Query>

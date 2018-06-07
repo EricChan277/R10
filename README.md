@@ -20,7 +20,6 @@
 ---
 
 - [Install](#install)
-- [Notes](#Notes)
 - [Usage](#usage)
 - [Maintainers](#maintainers)
 - [Contribute](#contribute)
@@ -48,7 +47,7 @@ to install all dependencies
 
 <br/>
 
-## Notes
+## Usage
 
 ---
 
@@ -58,14 +57,12 @@ For emulators, iPhone SE and Nexus 5x with Marshmellow are strongly recommended.
 
 For android emulation for the app to work, you must have the emulator opened already, but for iOs you do not.
 
-## Usage
-
----
+<br/>
 
 Inside the root folder, run
 
 ```
-$ react-native init-android
+$ react-native run-android
 ```
 
 to install the app onto your android emulator.

@@ -36,7 +36,6 @@ class ScheduleContainer extends Component {
   };
   render() {
     const favedItems = Array.from(this.props.faves);
-    console.log(this.props.faves);
 
     return (
       <Query query={SessionData}>

@@ -30,29 +30,28 @@ const Session = ({
     <Text style={styles.text}>{description}</Text>
     <Text style={styles.text}>Presented by: </Text>
 
-    <View style={styles.speaker}>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.push('Speaker', {
-            speaker,
-          })
-        }
-      >
-        {speaker.image === null ? (
-          ''
-        ) : (
-          <Image
-            source={{
-              uri: speaker.image,
-            }}
-            style={styles.image}
-          />
-        )}
-      </TouchableOpacity>
-      <Text style={{ padding: 10 }}>{speaker.name}</Text>
-    </View>
+    <TouchableOpacity
+      style={styles.speaker}
+      onPress={() =>
+        navigation.push('Speaker', {
+          speaker,
+        })
+      }
+    >
+      {speaker.image === null ? (
+        ''
+      ) : (
+        <Image
+          source={{
+            uri: speaker.image,
+          }}
+          style={styles.image}
+        />
+      )}
+      <Text style={styles.name}>{speaker.name}</Text>
+    </TouchableOpacity>
 
-    <View style={{ alignItems: 'center', marginTop: 15 }}>
+    <View style={styles.buttonContainer}>
       {!favedItems ? (
         <TouchableOpacity
           style={styles.button}

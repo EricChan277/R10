@@ -6,7 +6,6 @@ import styles from './styles';
 
 const Speaker = ({ speaker, navigation }) => (
   <View style={styles.background}>
-    {console.log(speaker)}
     <Icon
       name="md-close"
       size={30}
@@ -26,7 +25,7 @@ const Speaker = ({ speaker, navigation }) => (
         <Text style={styles.name}>{speaker.name}</Text>
         <Text style={styles.text}>{speaker.bio}</Text>
         <TouchableOpacity style={styles.button} onPress={() => Linking.openURL(speaker.url)}>
-          <Text style={{ color: 'white' }}>Read More on Wikipedia</Text>
+          <Text style={styles.btnText}>Read More on Wikipedia</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>

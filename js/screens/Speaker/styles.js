@@ -78,7 +78,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: assetColors.blue,
     padding: 10,
+
     borderRadius: 100,
+  },
+  btnText: {
     ...Platform.select({
       android: {
         fontFamily: assetTypography.android,
@@ -87,6 +90,7 @@ const styles = StyleSheet.create({
         fontFamily: assetTypography.ios,
       },
     }),
+    color: 'white',
   },
   background: {
     backgroundColor: 'black',

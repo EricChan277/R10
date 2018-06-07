@@ -66,6 +66,9 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 25,
   },
+  name: {
+    padding: 10,
+  },
   speaker: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -74,6 +77,10 @@ const styles = StyleSheet.create({
     borderBottomColor: assetColors.lightGrey,
     marginLeft: 20,
     marginRight: 20,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    marginTop: 15,
   },
   button: {
     alignItems: 'center',

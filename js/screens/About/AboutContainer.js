@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { ScrollView, View, Text } from 'react-native';
 
-import SingleConduct from '../../components/AboutConduct/SingleConduct.js';
+import SingleConduct from '../../components/SingleConduct';
 import Loader from '../../components/Loader';
 import About from './About';
 

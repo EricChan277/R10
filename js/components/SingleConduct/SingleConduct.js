@@ -15,12 +15,13 @@ class SingleConduct extends Component {
 
   toggle() {
     const heightVal = this.state.toggle === true ? 0 : '100%';
+    const parsedHeightVal = parseInt(heightVal, 10);
     this.setState({
       toggle: !this.state.toggle,
     });
 
     Animated.spring(this.state.animation, {
-      toValue: heightVal,
+      toValue: parsedHeightVal,
       duration: 1000,
     }).start();
   }

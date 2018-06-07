@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
-import { assetTypography } from '../../assets/styles';
+import { assetTypography, assetColors } from '../../assets/styles';
 
 const styles = StyleSheet.create({
   title: {
@@ -29,10 +29,9 @@ const styles = StyleSheet.create({
     }),
   },
   listTitle: {
-    color: '#9963ea',
-    padding: 15,
-    paddingTop: 10,
     fontSize: 18,
+    color: assetColors.purple,
+    paddingTop: 10,
     ...Platform.select({
       android: {
         fontFamily: assetTypography.android,
@@ -44,6 +43,23 @@ const styles = StyleSheet.create({
   },
   listView: {
     flexDirection: 'column',
+  },
+  titleWrapper: {
+    flexDirection: 'row',
+    width: '90%',
+  },
+  expander: {
+    fontSize: 18,
+    color: assetColors.purple,
+    paddingTop: 10,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android,
+      },
+      ios: {
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
 });
 

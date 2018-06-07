@@ -1,8 +1,13 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
+import { Query } from 'react-apollo';
+
+import SingleConduct from '../../components/SingleConduct';
+import Loader from '../../components/Loader';
+
 import styles from './styles';
 
-const About = () => (
+const About = ({ conductData }) => (
   <View>
     <View style={styles.image}>
       <Image source={require('../../assets/images/r10_logo.png')} />
@@ -15,6 +20,22 @@ const About = () => (
       The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC.
     </Text>
     <Text style={styles.title}>Code of Conduct</Text>
+
+    <Query query={conductData}>
+      {({ loading, error, data }) => {
+        if (loading) return <Loader />;
+        if (error) return <Text>Error!</Text>;
+
+        return (
+          <View>
+            {data.allConducts.map((item, index) => (
+              <SingleConduct item={item} key={index} index={index} />
+            ))}
+          </View>
+        );
+      }}
+    </Query>
+    <Text style={styles.footer}>© Eric Chan 2018</Text>
   </View>
 );
 

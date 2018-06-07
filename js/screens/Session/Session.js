@@ -33,7 +33,7 @@ const Session = ({
       ''
     ) : (
       <View>
-        <Text style={styles.text}>Presented by: </Text>
+        <Text style={styles.presentText}>Presented by: </Text>
         <TouchableOpacity
           style={styles.speaker}
           onPress={() =>

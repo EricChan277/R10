@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     borderTopColor: assetColors.lightGrey,
     borderTopWidth: 1,
+    width: '100%',
   },
 });
 

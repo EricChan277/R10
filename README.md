@@ -22,7 +22,6 @@
 - [Install](#install)
 - [Usage](#usage)
 - [Maintainers](#maintainers)
-- [Contribute](#contribute)
 - [License](#license)
 
 <br/>

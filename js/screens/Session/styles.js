@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     padding: 10,
-    color: assetColors.mediumGrey,
     ...Platform.select({
       android: {
         fontFamily: assetTypography.android,
@@ -50,7 +49,6 @@ const styles = StyleSheet.create({
     }),
   },
   text: {
-    color: assetColors.mediumGrey,
     padding: 10,
     ...Platform.select({
       android: {
@@ -87,6 +85,18 @@ const styles = StyleSheet.create({
     backgroundColor: assetColors.blue,
     padding: 10,
     borderRadius: 100,
+  },
+  presentText: {
+    paddingLeft: 10,
+    color: assetColors.mediumGrey,
+    ...Platform.select({
+      android: {
+        fontFamily: assetTypography.android,
+      },
+      ios: {
+        fontFamily: assetTypography.ios,
+      },
+    }),
   },
 });
 

@@ -34,7 +34,7 @@ class SingleConduct extends Component {
           </Text>
         </TouchableOpacity>
         <Animated.View style={{ height: this.state.animation }}>
-          {this.state.toggle && <Text>{this.props.item.description}</Text>}
+          {this.state.toggle && <Text style={styles.text}>{this.props.item.description}</Text>}
         </Animated.View>
       </View>
     );

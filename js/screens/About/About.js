@@ -1,10 +1,9 @@
 import React from 'react';
-import { ScrollView, View, Text, Image } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import styles from './styles';
-import AboutConduct from '../../components/AboutConduct';
 
 const About = () => (
-  <ScrollView contentContainerStyle={styles.container}>
+  <View>
     <View style={styles.image}>
       <Image source={require('../../assets/images/r10_logo.png')} />
     </View>
@@ -16,12 +15,7 @@ const About = () => (
       The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC.
     </Text>
     <Text style={styles.title}>Code of Conduct</Text>
-
-    <View style={styles.listView}>
-      <AboutConduct />
-    </View>
-    <Text style={styles.footer}>© Eric Chan 2018</Text>
-  </ScrollView>
+  </View>
 );
 
 export default About;

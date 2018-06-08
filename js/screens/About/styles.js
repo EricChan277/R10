@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   footer: {
+    backgroundColor: 'white',
     paddingTop: 10,
     marginHorizontal: 15,
     borderTopColor: assetColors.lightGrey,

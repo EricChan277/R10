@@ -2,23 +2,8 @@ import { StyleSheet, Platform } from 'react-native';
 import { assetTypography, assetColors } from '../../assets/styles';
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    padding: 15,
-    paddingTop: 10,
-    ...Platform.select({
-      android: {
-        fontFamily: assetTypography.android,
-      },
-      ios: {
-        fontFamily: assetTypography.ios,
-      },
-    }),
-  },
   text: {
-    padding: 15,
-    paddingTop: 10,
+    // padding: 15,
     ...Platform.select({
       android: {
         fontFamily: assetTypography.android,
@@ -30,8 +15,10 @@ const styles = StyleSheet.create({
   },
   listTitle: {
     fontSize: 18,
+    paddingHorizontal: 5,
+    padding: 15,
     color: assetColors.purple,
-    paddingTop: 10,
+    backgroundColor: 'red',
     ...Platform.select({
       android: {
         fontFamily: assetTypography.android,
@@ -41,13 +28,7 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  listView: {
-    flexDirection: 'column',
-  },
-  titleWrapper: {
-    flexDirection: 'row',
-    width: '90%',
-  },
+
   expander: {
     fontSize: 18,
     color: assetColors.purple,

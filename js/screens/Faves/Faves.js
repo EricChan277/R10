@@ -9,44 +9,44 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const Faves = ({ sessionData, navigation }) => (
-  <View style={styles.page}>
-    <SectionList
-      renderItem={({ item }, index) => (
-        <TouchableOpacity
-          key={index}
-          style={styles.item}
-          onPress={() =>
+    <View style={styles.page}>
+        <SectionList
+            renderItem={({ item }, index) => (
+                <TouchableOpacity
+                    key={index}
+                    style={styles.item}
+                    onPress={() =>
             navigation.navigate('Session', {
               title: item.title,
               id: item.id,
               description: item.description,
               time: item.startTime,
               location: item.location,
-              speaker: item.speaker,
+              speaker: item.speaker
             })
           }
-        >
-          <Text style={styles.listTitle}>{item.title}</Text>
-          <View style={styles.listView}>
-            <Text style={styles.listLocation}>{item.location}</Text>
-            <Ionicons name="md-heart" size={25} color="red" />
-          </View>
-        </TouchableOpacity>
+                >
+                    <Text style={styles.listTitle}>{item.title}</Text>
+                    <View style={styles.listView}>
+                        <Text style={styles.listLocation}>{item.location}</Text>
+                        <Ionicons name="md-heart" size={25} color="red" />
+                    </View>
+                </TouchableOpacity>
       )}
-      renderSectionHeader={({ section: { title } }) => (
-        <Text style={styles.time}>{moment(title).format('h:mm a')}</Text>
+            renderSectionHeader={({ section: { title } }) => (
+                <Text style={styles.time}>{moment(title).format('h:mm a')}</Text>
       )}
-      sections={sessionData}
-      keyExtractor={(item, index) => `${index}`}
-    />
-  </View>
+            sections={sessionData}
+            keyExtractor={(item, index) => `${index}`}
+        />
+    </View>
 );
 
 Faves.propTypes = {
-  sessionData: PropTypes.array.isRequired,
-  navigation: PropTypes.object.isRequired,
+  sessionData: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])).isRequired,
+  navigation: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.object, PropTypes.func])).isRequired
 };
 
 export default connect(state => ({
-  faves: state.faveData.faves,
+  faves: state.faveData.faves
 }))(Faves);

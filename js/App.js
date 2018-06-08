@@ -11,11 +11,11 @@ import RootStackNavigator from './navigation/RootStackNavigator';
 export default class App extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
-        <Provider store={store}>
-          <RootStackNavigator />
-        </Provider>
-      </ApolloProvider>
+        <ApolloProvider client={client}>
+            <Provider store={store}>
+                <RootStackNavigator />
+            </Provider>
+        </ApolloProvider>
     );
   }
 }

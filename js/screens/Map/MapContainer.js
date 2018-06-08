@@ -5,9 +5,9 @@ import Map from './Map';
 class MapContainer extends Component {
   render() {
     return (
-      <View>
-        <Map />
-      </View>
+        <View>
+            <Map />
+        </View>
     );
   }
 }

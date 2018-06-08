@@ -6,8 +6,7 @@ import { Query } from 'react-apollo';
 import PropTypes from 'prop-types';
 
 import Loader from '../../components/Loader';
-
-import { formatSessionData } from '../../lib/helper';
+import formatSessionData from '../../lib/helper';
 import Schedule from './Schedule';
 
 const SessionData = gql`
@@ -31,15 +30,16 @@ const SessionData = gql`
 
 class ScheduleContainer extends Component {
   filterSessions = (faved, sessions) => {
-    const favedSessions = sessions.filter(session => faved.find(fave => fave.id === session.id));
+    const favedSessions = sessions.filter(session =>
+      faved.find(fave => fave.id === session.id));
     return favedSessions;
   };
   render() {
     const favedItems = Array.from(this.props.faves);
 
     return (
-      <Query query={SessionData}>
-        {({ loading, error, data }) => {
+        <Query query={SessionData}>
+            {({ loading, error, data }) => {
           if (loading || !data) {
             return <Loader />;
           }
@@ -50,24 +50,24 @@ class ScheduleContainer extends Component {
 
           return (
             data.allSessions.length && (
-              <Schedule
+            <Schedule
                 sessionData={formatSessionData(data.allSessions)}
                 navigation={this.props.navigation}
                 faved={faved}
-              />
+            />
             )
           );
         }}
-      </Query>
+        </Query>
     );
   }
 }
 
-// ScheduleContainer.PropTypes = {
-//   faves: PropTypes.object.isRequired,
-//   navigation: PropTypes.object.isRequired,
-// };
+ScheduleContainer.propTypes = {
+  faves: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.array])).isRequired,
+  navigation: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.object, PropTypes.func])).isRequired
+};
 
 export default connect(state => ({
-  faves: state.faveData.faves,
+  faves: state.faveData.faves
 }))(ScheduleContainer);

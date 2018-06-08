@@ -7,32 +7,32 @@ const DELETE_FAVE_SESSION = 'DELETE_FAVE_SESSION';
 const GET_ERROR = 'GET_ERROR';
 
 export const createFaveSession = () => ({
-  type: CREATE_FAVE_SESSION,
+  type: CREATE_FAVE_SESSION
 });
 
 export const getFavedSessionId = () => ({
-  type: GET_FAVED_SESSION_IDS,
+  type: GET_FAVED_SESSION_IDS
 });
 
 export const deleteFaveSession = () => ({
-  type: DELETE_FAVE_SESSION,
+  type: DELETE_FAVE_SESSION
 });
 
 export const getError = error => ({
   type: GET_ERROR,
-  payload: error,
+  payload: error
 });
 
 /** *********************************** Initial State ******************************** */
 
 const initialState = {
   faves: queryAllFaves(),
-  error: '',
+  error: ''
 };
 
 /** *********************************** THUNK ******************************** */
 
-export const createTheFaves = faveId => (dispatch) => {
+export const createTheFaves = faveId => dispatch => {
   try {
     addFave(faveId);
     dispatch(createFaveSession());
@@ -42,7 +42,7 @@ export const createTheFaves = faveId => (dispatch) => {
   }
 };
 
-export const deleteTheFaves = faveId => (dispatch) => {
+export const deleteTheFaves = faveId => dispatch => {
   try {
     deleteFave(faveId);
     dispatch(getFavedSessionId());
@@ -60,13 +60,12 @@ export default (state = initialState, action) => {
     }
     case CREATE_FAVE_SESSION:
     case DELETE_FAVE_SESSION:
-
     case GET_ERROR: {
       return { ...state, error: action.payload };
     }
     default: {
       return {
-        ...state,
+        ...state
       };
     }
   }

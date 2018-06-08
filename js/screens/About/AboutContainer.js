@@ -19,9 +19,9 @@ const conductData = gql`
 class AboutContainer extends Component {
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <About conductData={conductData} />
-      </ScrollView>
+        <ScrollView contentContainerStyle={styles.container}>
+            <About conductData={conductData} />
+        </ScrollView>
     );
   }
 }
